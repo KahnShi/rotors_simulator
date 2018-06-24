@@ -106,6 +106,7 @@ if (NOT NO_ROS)
     rotors_control
     std_srvs
     tf
+    hector_gazebo_plugins
   )
 endif()
 
@@ -273,6 +274,11 @@ if (NOT NO_ROS)
   add_dependencies(rotors_gazebo_imu_plugin ${catkin_EXPORTED_TARGETS})
 endif()
 list(APPEND targets_to_install rotors_gazebo_imu_plugin)
+
+## test
+add_library(hydrus_gazebo_ros_imu src/gazebo_ros_imu.cpp)
+target_link_libraries(hydrus_gazebo_ros_imu ${Boost_LIBRARIES} ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES})
+add_dependencies(hydrus_gazebo_ros_imu ${PROJECT_NAME}_generate_messages_cpp ${PROJECT_NAME}_gencfg)
 
 #======================================== LIDAR PLUGIN ==========================================//
 if(${gazebo_VERSION_MAJOR} GREATER 4)

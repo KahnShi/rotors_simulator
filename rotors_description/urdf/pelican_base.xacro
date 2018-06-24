@@ -27,6 +27,58 @@
   <!-- Instantiate a controller. -->
   <xacro:controller_plugin_macro namespace="${namespace}" imu_sub_topic="imu" />
 
+  <gazebo>
+    <plugin name="hydrusx_imu_sim_link1" filename="libhydrus_gazebo_ros_imu.so">
+      <updateRate>100.0</updateRate>
+      <bodyName>pelican/imu1_link</bodyName>
+      <frameId>pelican/imu1_link</frameId>
+      <topicName>hydrus_imu_link1</topicName>
+      <rpyOffset>0 0 0</rpyOffset> <!-- deprecated -->
+      <gaussianNoise>0</gaussianNoise>  <!-- deprecated -->
+      <accelDrift>0.0 0.0 0.0</accelDrift>
+      <accelGaussianNoise>0.0 0.0 0.0</accelGaussianNoise>
+      <rateDrift>0.0 0.0 0.0</rateDrift>
+      <rateGaussianNoise>0.0 0.0 0.0</rateGaussianNoise>
+    </plugin>
+    <plugin name="hydrusx_imu_sim_link2" filename="libhydrus_gazebo_ros_imu.so">
+      <updateRate>100.0</updateRate>
+      <bodyName>pelican/imu2_link</bodyName>
+      <frameId>pelican/imu2_link</frameId>
+      <topicName>hydrus_imu_link2</topicName>
+      <rpyOffset>0 0 0</rpyOffset> <!-- deprecated -->
+      <gaussianNoise>0</gaussianNoise>  <!-- deprecated -->
+      <accelDrift>0.0 0.0 0.0</accelDrift>
+      <accelGaussianNoise>0.0 0.0 0.0</accelGaussianNoise>
+      <rateDrift>0.0 0.0 0.0</rateDrift>
+      <rateGaussianNoise>0.0 0.0 0.0</rateGaussianNoise>
+    </plugin>
+    <plugin name="hydrusx_imu_sim_link3" filename="libhydrus_gazebo_ros_imu.so">
+      <updateRate>100.0</updateRate>
+      <bodyName>pelican/imu3_link</bodyName>
+      <frameId>pelican/imu3_link</frameId>
+      <topicName>hydrus_imu_link3</topicName>
+      <rpyOffset>0 0 0</rpyOffset> <!-- deprecated -->
+      <gaussianNoise>0</gaussianNoise>  <!-- deprecated -->
+      <accelDrift>0.0 0.0 0.0</accelDrift>
+      <accelGaussianNoise>0.0 0.0 0.0</accelGaussianNoise>
+      <rateDrift>0.0 0.0 0.0</rateDrift>
+      <rateGaussianNoise>0.0 0.0 0.0</rateGaussianNoise>
+    </plugin>
+    <plugin name="hydrusx_imu_sim_link4" filename="libhydrus_gazebo_ros_imu.so">
+      <updateRate>100.0</updateRate>
+      <bodyName>pelican/imu4_link</bodyName>
+      <frameId>pelican/imu4_link</frameId>
+      <topicName>hydrus_imu_link4</topicName>
+      <rpyOffset>0 0 0</rpyOffset> <!-- deprecated -->
+      <gaussianNoise>0</gaussianNoise>  <!-- deprecated -->
+      <accelDrift>0.0 0.0 0.0</accelDrift>
+      <accelGaussianNoise>0.0 0.0 0.0</accelGaussianNoise>
+      <rateDrift>0.0 0.0 0.0</rateDrift>
+      <rateGaussianNoise>0.0 0.0 0.0</rateGaussianNoise>
+    </plugin>
+  </gazebo>
+  
+
   <xacro:if value="$(arg enable_mavlink_interface)">
     <!-- Instantiate mavlink telemetry interface. -->
     <xacro:default_mavlink_interface namespace="${namespace}" imu_sub_topic="imu" rotor_count="4" />
